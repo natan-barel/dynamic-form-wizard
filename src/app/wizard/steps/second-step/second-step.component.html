@@ -1,0 +1,11 @@
+<section class="step-section">
+    STEP TWO!
+    <app-stepper-buttons
+        [hasBackStep]="hasBack()"
+        [hasNextStep]="hasNext()"
+        (onStepGoBack)="goToBackStep()"
+        (onStepGoNext)="submit()"
+    >
+    </app-stepper-buttons>
+</section>
+  

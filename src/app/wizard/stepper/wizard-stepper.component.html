@@ -1,0 +1,17 @@
+<section class="wizard-section">
+  <div class="container-fluid">
+    <nz-steps #stepper [nzCurrent]="stepper.nzCurrent" (nzIndexChange)="moveStepper($event)">
+      <nz-step *ngFor="let step of steps | async; let i= index " nzTitle="{{i+1 | numberToText}}"
+        nzIcon="{{step.icon}}">
+      </nz-step>
+    </nz-steps>
+    <ng-container *ngFor="let step of steps | async; let i= index ">
+      <div class="steps-content"
+        [ngClass]="{ 'hideStep': stepper.nzCurrent != i , 'steps-content--fadeRight': fadeRight , 'steps-content--fadeLeft': fadeLeft } ">
+        <app-step-page-wrapper [stepIndex]="i" [stepsLength]="(steps | async)?.length" [item]="step"
+          (onGoForward)="goForward(stepper)" (onGoBack)="goBack(stepper)" (setStepperIndex)="moveStepper($event)">
+        </app-step-page-wrapper>
+      </div>
+    </ng-container>
+  </div>
+</section>
