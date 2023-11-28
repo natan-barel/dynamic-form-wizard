@@ -7,7 +7,6 @@ import { ToWords } from 'to-words';
 export class NumberToTextPipe implements PipeTransform {
     toWords = new ToWords();
     transform(value: number): string {
-        console.log(value);
         // Check if the value is a valid number
         if (isNaN(value)) {
             return 'Not a number';
